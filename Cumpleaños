@@ -1,0 +1,52 @@
+import java.util.Scanner;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.Calendar;
+import java.util.Date;
+public class Aplicacion {
+	public static void main(String[] args) {
+	
+		Scanner dia = new Scanner(System.in);
+		Scanner mes = new Scanner(System.in);
+		Scanner ano = new Scanner(System.in);
+		
+		System.out.println("Ingrese dia de nacimiento: ");
+		int dia1 = dia.nextInt();
+		System.out.println("Ingrese mes de nacimiento: ");
+		int mes1 = mes.nextInt();
+		System.out.println("Ingrese año de nacimiento: ");
+		int ano1 = ano.nextInt();
+		LocalDate currentDate = LocalDate.now();
+		int diaActual = currentDate.getDayOfMonth();
+		//Month mesActual = currentDate.getMonth()
+		int mesActual = currentDate.getMonthValue();
+		int anoActual = currentDate.getYear();
+		if (mesActual == mes1)
+		{
+			if (diaActual == dia1)
+			{
+				int edad = anoActual - ano1;
+				System.out.println("Ud. está cumpliendo " + edad + " años. Felicitaciones!");
+			}
+			else if(diaActual < dia1)
+			{
+				int edad = (anoActual-1) - ano1;
+				System.out.println("Ud. tiene " + edad + " años.");
+			}
+			else
+			{	
+				int edad = anoActual - ano1;
+				System.out.println("Ud. tiene " + edad + " años.");
+			}
+		}
+		else if (mesActual > mes1){
+			int edad = anoActual - ano1;
+			System.out.println("Ud. tiene " + edad + " años.");
+		}
+		else{
+			int edad = (anoActual-1) - ano1;
+			System.out.println("Ud. tiene " + edad + " años.");
+		}
+		}
+	}
